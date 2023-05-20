@@ -7,6 +7,7 @@
  * @FilePath: \acfun-pc\src\main.ts
  */
 
+import '@/assets/scss/base.scss';
 import naive from '@/utils/NativeUI';
 import { createApp } from 'vue';
 import App from './App.vue';
