@@ -7,6 +7,7 @@
  * @FilePath: \acfun-pc\src\main.ts
  */
 
+import router from '@/assets/router/router';
 import '@/assets/scss/base.scss';
 import naive from '@/utils/NativeUI';
 import { createApp } from 'vue';
@@ -14,4 +15,5 @@ import App from './App.vue';
 
 const app = createApp(App);
 app.use(naive);
+app.use(router);
 app.mount('#app');

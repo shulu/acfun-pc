@@ -8,8 +8,14 @@
  */
 import {
     NButton,
+    NDivider,
     NEmpty,
+    NGi,
+    NGrid,
+    NGridItem,
     NImage,
+    NInput,
+    NInputGroup,
     NLayout,
     NLayoutContent,
     NLayoutFooter,
@@ -40,6 +46,12 @@ const naive = create({
         NImage,
         NEmpty,
         NResult,
+        NInputGroup,
+        NInput,
+        NGrid,
+        NGridItem,
+        NGi,
+        NDivider,
     ],
 });
 

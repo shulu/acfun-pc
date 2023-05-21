@@ -2,21 +2,30 @@
  * @Author: shulu
  * @Date: 2023-05-20 18:39:03
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-20 23:31:20
+ * @LastEditTime: 2023-05-21 18:03:49
  * @Description: file content
  * @FilePath: \acfun-pc\src\components\Layout\Left\MenuTop.vue
 -->
 <script setup lang="ts">
 import MenuVertical from '@/components/Common/MenuVertical.vue';
-import { AtSharp, HeartCircleSharp, HomeSharp, OptionsSharp, PawSharp, PersonSharp } from '@vicons/ionicons5';
+import { AtSharp, HeartCircleSharp, HomeSharp, PawSharp } from '@vicons/ionicons5';
 import type { MenuOption } from 'naive-ui';
 import { NIcon } from 'naive-ui';
 import { Component, h, toRefs } from 'vue';
+import { RouterLink } from 'vue-router';
 const menuOptions: MenuOption[] = [
     {
-        label: '首页',
+        label: () =>
+            h(
+                RouterLink,
+                {
+                    to: {
+                        path: '/home',
+                    },
+                },
+                { default: () => '首页' },
+            ),
         key: 'home',
-        href: '#',
         icon: renderIcon(HomeSharp),
     },
     {
@@ -37,18 +46,18 @@ const menuOptions: MenuOption[] = [
         disabled: false,
         icon: renderIcon(AtSharp),
     },
-    {
-        label: '我的',
-        key: 'mine',
-        disabled: false,
-        icon: renderIcon(PersonSharp),
-    },
-    {
-        label: '设置',
-        key: 'setting',
-        disabled: false,
-        icon: renderIcon(OptionsSharp),
-    },
+    // {
+    //     label: '我的',
+    //     key: 'mine',
+    //     disabled: false,
+    //     icon: renderIcon(PersonSharp),
+    // },
+    // {
+    //     label: '设置',
+    //     key: 'setting',
+    //     disabled: false,
+    //     icon: renderIcon(OptionsSharp),
+    // },
 ];
 
 function renderIcon(icon: Component) {
@@ -60,6 +69,8 @@ const props = defineProps({
 });
 
 const { collapsed } = toRefs(props);
+
+
 </script>
 <template>
     <MenuVertical :menuOptions="menuOptions" :collapsed="collapsed" />
