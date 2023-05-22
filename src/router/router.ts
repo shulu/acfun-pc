@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-21 17:50:40
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-22 15:20:01
+ * @LastEditTime: 2023-05-22 23:23:17
  * @Description: file content
- * @FilePath: /acfun-pc/src/router/router.ts
+ * @FilePath: \acfun-pc\src\router\router.ts
  */
 import { createRouter, createWebHistory } from 'vue-router';
 
