@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-20 18:39:03
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-21 18:03:49
+ * @LastEditTime: 2023-05-22 15:20:30
  * @Description: file content
- * @FilePath: \acfun-pc\src\components\Layout\Left\MenuTop.vue
+ * @FilePath: /acfun-pc/src/components/Layout/Left/MenuTop.vue
 -->
 <script setup lang="ts">
 import MenuVertical from '@/components/Common/MenuVertical.vue';
@@ -29,7 +29,16 @@ const menuOptions: MenuOption[] = [
         icon: renderIcon(HomeSharp),
     },
     {
-        label: '动态',
+        label: () =>
+            h(
+                RouterLink,
+                {
+                    to: {
+                        path: '/likes',
+                    },
+                },
+                { default: () => '动态' },
+            ),
         key: 'likes',
         disabled: false,
         icon: renderIcon(HeartCircleSharp),
@@ -69,8 +78,6 @@ const props = defineProps({
 });
 
 const { collapsed } = toRefs(props);
-
-
 </script>
 <template>
     <MenuVertical :menuOptions="menuOptions" :collapsed="collapsed" />

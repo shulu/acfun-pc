@@ -7,7 +7,7 @@
  * @FilePath: \acfun-pc\src\main.ts
  */
 
-import router from '@/assets/router/router';
+import router from '@/router/router';
 import '@/assets/scss/base.scss';
 import naive from '@/utils/NativeUI';
 import { createApp } from 'vue';
