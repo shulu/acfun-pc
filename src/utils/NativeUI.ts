@@ -8,6 +8,7 @@
  */
 import {
     NButton,
+    NConfigProvider,
     NDivider,
     NEmpty,
     NGi,
@@ -52,6 +53,7 @@ const naive = create({
         NGridItem,
         NGi,
         NDivider,
+        NConfigProvider,
     ],
 });
 
