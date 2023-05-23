@@ -1,10 +1,18 @@
 /*
  * @Author: shulu
+ * @Date: 2023-05-23 09:47:09
+ * @LastEditors: shulu
+ * @LastEditTime: 2023-05-23 18:00:48
+ * @Description: file content
+ * @FilePath: /acfun-pc/src/router/router.ts
+ */
+/*
+ * @Author: shulu
  * @Date: 2023-05-21 17:50:40
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-22 23:23:17
+ * @LastEditTime: 2023-05-23 17:01:20
  * @Description: file content
- * @FilePath: \acfun-pc\src\router\router.ts
+ * @FilePath: /acfun-pc/src/router/router.ts
  */
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -15,47 +23,71 @@ const routes = [
     },
     {
         path: '/home',
+        name: 'home',
         component: () => import('@/views/Home/Home.vue'),
         meta: {
-            routeKey: 'home',
+            rkey: 'home',
         },
         children: [
             {
                 path: 'live',
+                name: 'home-live',
                 component: () => import('@/views/Home/HomeLive.vue'),
                 meta: {
-                    routeKey: 'home-live',
+                    rkey: 'home-live',
                 },
             },
             {
                 path: 'recommend',
+                name: 'home-recommend',
                 component: () => import('@/views/Home/HomeRecommend.vue'),
                 meta: {
-                    routeKey: 'home-recommend',
+                    rkey: 'home-recommend',
                 },
             },
             {
                 path: 'anime',
+                name: 'home-anime',
                 component: () => import('@/views/Home/HomeAnime.vue'),
                 meta: {
-                    routeKey: 'home-anime',
+                    rkey: 'home-anime',
                 },
             },
             {
                 path: 'rank',
+                name: 'home-rank',
                 component: () => import('@/views/Home/HomeRank.vue'),
                 meta: {
-                    routeKey: 'home-rank',
+                    rkey: 'home-rank',
                 },
             },
         ],
     },
     {
         path: '/likes',
+        name: 'likes',
         component: () => import('@/views/Likes/index.vue'),
         meta: {
             routeKey: 'likes',
         },
+        children: [
+            {
+                path: 'all',
+                name: 'likes-all',
+                component: () => import('@/views/Likes/LikesAll.vue'),
+                meta: {
+                    rkey: 'likes-all',
+                },
+            },
+            {
+                path: 'recommend',
+                name: 'likes-recommend',
+                component: () => import('@/views/Likes/LikesRecommend.vue'),
+                meta: {
+                    rkey: 'likes-recommend',
+                },
+            },
+        ],
     },
 ];
 

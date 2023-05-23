@@ -2,13 +2,13 @@
  * @Author: shulu
  * @Date: 2023-05-18 21:05:56
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-18 22:58:27
+ * @LastEditTime: 2023-05-23 18:01:19
  * @Description: file content
- * @FilePath: \acfun-pc\src\main.ts
+ * @FilePath: /acfun-pc/src/main.ts
  */
 
-import router from '@/router/router';
 import '@/assets/scss/base.scss';
+import router from '@/router/router';
 import naive from '@/utils/NativeUI';
 import { createApp } from 'vue';
 import App from './App.vue';
