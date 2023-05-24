@@ -10,6 +10,7 @@ import {
     NButton,
     NConfigProvider,
     NDivider,
+    NEllipsis,
     NEmpty,
     NGi,
     NGrid,
@@ -28,6 +29,7 @@ import {
     NSwitch,
     NTab,
     NTabs,
+    NTooltip,
     create,
 } from 'naive-ui';
 
@@ -54,6 +56,8 @@ const naive = create({
         NGi,
         NDivider,
         NConfigProvider,
+        NEllipsis,
+        NTooltip,
     ],
 });
 

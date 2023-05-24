@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-20 12:01:57
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-23 17:56:30
+ * @LastEditTime: 2023-05-24 20:56:45
  * @Description: file content
- * @FilePath: /acfun-pc/src/components/Layout/Top/TopBar.vue
+ * @FilePath: \acfun-pc\src\components\Layout\Top\TopBar.vue
 -->
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui';
@@ -13,6 +13,7 @@ import { useRoute } from 'vue-router';
 import Search from './Search.vue';
 import SystemButton from './SystemButton.vue';
 const route = useRoute();
+const activeKey = ref('home-recommend');
 const handleUpdateValue = (key: string) => {
     activeKey.value = key;
 };
@@ -20,13 +21,20 @@ const props = defineProps({
     menuOptions: Array<MenuOption>,
 });
 const { menuOptions } = toRefs(props);
-const activeKey = ref('home-recommend');
 watch(
     () => route.meta,
     (meta) => {
-        const rkey = meta.rkey;
-        activeKey.value = rkey;
-        handleUpdateValue(rkey);
+        const rkey = String(meta.rkey);
+        switch (rkey) {
+            case 'likes':
+                activeKey.value = 'likes-all';
+                break;
+            case 'home':
+                activeKey.value = 'home-recommend';
+                break;
+            default:
+                activeKey.value = rkey;
+        }
     },
 );
 </script>

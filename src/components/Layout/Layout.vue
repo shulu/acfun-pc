@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-18 22:55:23
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-23 17:12:58
+ * @LastEditTime: 2023-05-24 20:39:36
  * @Description: file content
- * @FilePath: /acfun-pc/src/components/Layout/Layout.vue
+ * @FilePath: \acfun-pc\src\components\Layout\Layout.vue
 -->
 <script setup lang="ts">
 import BaseContent from '@/components/Layout/BaseContent.vue';
@@ -19,17 +19,18 @@ const route = useRoute();
 const router = useRouter();
 watch(
     () => route.matched,
-    (matched) => {
+    (matched, prevMatched) => {
         const nowRoute = matched[0].name;
-        switch (nowRoute) {
-            case 'likes':
-                menuOptions.value = likesMenuOptions;
-                router.replace({ path: '/likes/all' });
-                break;
-            default:
-                menuOptions.value = homeMenuOptions;
-                router.replace({ path: '/home/recommend' });
-                break;
+        const prevRoute = prevMatched.length > 0 ? prevMatched[0].name : '';
+        if (nowRoute != prevRoute) {
+            switch (nowRoute) {
+                case 'likes':
+                    menuOptions.value = likesMenuOptions;
+                    break;
+                default:
+                    menuOptions.value = homeMenuOptions;
+                    break;
+            }
         }
     },
 );

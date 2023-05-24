@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-23 09:47:09
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-23 18:00:48
+ * @LastEditTime: 2023-05-24 21:00:21
  * @Description: file content
- * @FilePath: /acfun-pc/src/router/router.ts
+ * @FilePath: \acfun-pc\src\router\router.ts
  */
 /*
  * @Author: shulu
@@ -68,7 +68,7 @@ const routes = [
         name: 'likes',
         component: () => import('@/views/Likes/index.vue'),
         meta: {
-            routeKey: 'likes',
+            rkey: 'likes',
         },
         children: [
             {

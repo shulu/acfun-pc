@@ -2,14 +2,15 @@
  * @Author: shulu
  * @Date: 2023-05-20 21:58:13
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-24 17:16:13
+ * @LastEditTime: 2023-05-24 21:30:13
  * @Description: file content
- * @FilePath: /acfun-pc/src/components/Common/MenuVertical.vue
+ * @FilePath: \acfun-pc\src\components\Common\MenuVertical.vue
 -->
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui';
-import { inject, ref, toRefs, watch } from 'vue';
-
+import { ref, toRefs } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute();
 const selectRoute = ref('home');
 
 const handleUpdateValue = (key: string) => {
@@ -21,8 +22,6 @@ const props = defineProps({
     menuOptions: Array<MenuOption>,
 });
 const { collapsed, menuOptions } = toRefs(props);
-
-
 </script>
 <template>
     <n-menu
