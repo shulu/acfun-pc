@@ -8,7 +8,6 @@ import {
     PersonSharp,
     Sparkles,
     StatsChart,
-    SunnyOutline,
     Videocam,
 } from '@vicons/ionicons5';
 import type { MenuOption } from 'naive-ui';
@@ -152,24 +151,24 @@ export const leftTopMenuOptions: MenuOption[] = [
         disabled: false,
         icon: renderIcon(PersonSharp),
     },
-    // {
-    //     label: '消息',
-    //     key: 'message',
-    //     disabled: false,
-    //     icon: renderIcon(AtSharp),
-    // },
+    {
+        label: '消息',
+        key: 'message',
+        disabled: false,
+        icon: renderIcon(AtSharp),
+    },
     // {
     //     label: '我的',
     //     key: 'mine',
     //     disabled: false,
     //     icon: renderIcon(PersonSharp),
     // },
-    // {
-    //     label: '设置',
-    //     key: 'setting',
-    //     disabled: false,
-    //     icon: renderIcon(OptionsSharp),
-    // },
+    {
+        label: '设置',
+        key: 'setting',
+        disabled: false,
+        icon: renderIcon(OptionsSharp),
+    },
 ];
 
 export const leftBottomOptions: MenuOption[] = [
@@ -179,12 +178,12 @@ export const leftBottomOptions: MenuOption[] = [
     //     disabled: false,
     //     icon: renderIcon(PersonSharp),
     // },
-    {
-        label: '主题',
-        key: 'theme',
-        disabled: false,
-        icon: renderIcon(SunnyOutline),
-    },
+    // {
+    //     label: '主题',
+    //     key: 'theme',
+    //     disabled: false,
+    //     icon: renderIcon(SunnyOutline),
+    // },
     {
         label: '消息',
         key: 'message',
