@@ -1,0 +1,3 @@
+{
+    "/home/:cate": "/home?cate=:cate"
+}
