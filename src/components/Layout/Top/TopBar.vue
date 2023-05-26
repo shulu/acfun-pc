@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-20 12:01:57
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-24 20:56:45
+ * @LastEditTime: 2023-05-26 16:41:55
  * @Description: file content
- * @FilePath: \acfun-pc\src\components\Layout\Top\TopBar.vue
+ * @FilePath: /acfun-pc/src/components/Layout/Top/TopBar.vue
 -->
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui';
@@ -41,13 +41,17 @@ watch(
 <template>
     <n-layout-header bordered>
         <n-grid x-gap="12" cols="5">
-            <n-gi :span="2">
-                <n-menu :value="activeKey" mode="horizontal" :options="menuOptions" @update:value="handleUpdateValue" />
+            <n-gi :span="3">
+                <n-menu
+                    :value="activeKey"
+                    mode="horizontal"
+                    :collapsed-width="20"
+                    :options="menuOptions"
+                    @update:value="handleUpdateValue"
+                />
             </n-gi>
-            <n-gi>
+            <n-gi :span="2" style="display: flex; align-items: end; justify-content: end">
                 <search />
-            </n-gi>
-            <n-gi :offset="1" style="display: flex; align-items: end; justify-content: end">
                 <system-button />
             </n-gi>
         </n-grid>

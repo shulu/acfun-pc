@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-18 22:55:23
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-24 20:39:36
+ * @LastEditTime: 2023-05-26 17:50:01
  * @Description: file content
- * @FilePath: \acfun-pc\src\components\Layout\Layout.vue
+ * @FilePath: /acfun-pc/src/components/Layout/Layout.vue
 -->
 <script setup lang="ts">
 import BaseContent from '@/components/Layout/BaseContent.vue';
@@ -29,6 +29,7 @@ watch(
                     break;
                 default:
                     menuOptions.value = homeMenuOptions;
+                    router.push('/home/recommend');
                     break;
             }
         }

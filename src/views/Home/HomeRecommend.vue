@@ -9,27 +9,31 @@ onMounted(async () => {
     const result = await store.getListByCate();
     recommendList.value = result;
 });
-console.log(`output->recommendList`, recommendList);
 </script>
 <template>
-    <n-grid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="20" :y-gap="30">
+    <n-grid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="20" :y-gap="30" v-if="recommendList.length > 0">
         <n-grid-item v-for="recommend in recommendList">
             <n-layout>
                 <n-layout-header>
-                    <n-image :src="recommend.image" object-fit="cover" style="border-radius: 0.3rem" />
+                    <a href="#">
+                        <n-image
+                            :src="recommend.image"
+                            object-fit="fill"
+                            width="320"
+                            style="border-radius: 0.3rem"
+                            preview-disabled
+                        />
+                    </a>
                 </n-layout-header>
                 <n-layout-content>
-                    <n-ellipsis style="max-width: 240px">
-                        {{ recommend.title }}
-                        <template #tooltip placement="bottom">
-                            <div style="text-align: center">
-                                {{ recommend.title }}<br />
-                                UP:{{ recommend.author }}<br />
-                                发布于2023-05-24 19:00:00 / 点击:{{ recommend.played }} / 评论:{{ recommend.danmu
-                                }}<br />
-                            </div>
+                    <n-tooltip placement="bottom" trigger="hover">
+                        <template #trigger>
+                            <n-ellipsis style="max-width: 240px">
+                                {{ recommend.title }}
+                            </n-ellipsis>
                         </template>
-                    </n-ellipsis>
+                        <span> I wish they all could be California girls </span>
+                    </n-tooltip>
                 </n-layout-content>
                 <n-layout-footer>
                     <n-space justify="space-evenly" align="start">
@@ -54,6 +58,11 @@ console.log(`output->recommendList`, recommendList);
             </n-layout>
         </n-grid-item>
     </n-grid>
+    <n-empty size="large" description="可以是大的" v-else>
+        <template #extra>
+            <n-button size="small"> 看看别的 </n-button>
+        </template>
+    </n-empty>
 </template>
 <style scoped lang="scss">
 .light-green {
