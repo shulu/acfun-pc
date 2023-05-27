@@ -1,57 +1,92 @@
 <script setup lang="ts">
 import { useHomeStore } from '@/store/homeStore';
-import { List, Play } from '@vicons/ionicons5';
+import { List, People, Play } from '@vicons/ionicons5';
 import { NIcon } from 'naive-ui';
 import { onMounted, ref } from 'vue';
 const store = useHomeStore();
-const recommendList = ref([]);
+store.cate = { cate: 'recommend' };
+const list = ref([]);
 onMounted(async () => {
     const result = await store.getListByCate();
-    recommendList.value = result;
+    list.value = result;
 });
 </script>
 <template>
-    <n-grid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen" :x-gap="20" :y-gap="30" v-if="recommendList.length > 0">
-        <n-grid-item v-for="recommend in recommendList">
+    <n-grid cols="4 m:4 l:5" responsive="screen" :x-gap="20" :y-gap="20" v-if="list.length > 0">
+        <n-grid-item v-for="recommend in list">
             <n-layout>
                 <n-layout-header>
-                    <a href="#">
+                    <a href="#" style="display: inline-block; position: relative">
                         <n-image
                             :src="recommend.image"
-                            object-fit="fill"
-                            width="320"
-                            style="border-radius: 0.3rem"
+                            object-fit="cover"
                             preview-disabled
+                            style="border-radius: 0.3rem; width: 100%"
+                            :img-props="{ style: { width: '100%' } }"
                         />
+                        <div
+                            style="
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                color: #fff;
+                                display: flex;
+                                gap: 10px;
+                                width: 100%;
+                            "
+                        >
+                            <div
+                                style="
+                                    display: flex;
+                                    width: 100%;
+                                    flex: 1;
+                                    margin-left: 8px;
+                                    margin-bottom: 8px;
+                                    gap: 10px;
+                                "
+                            >
+                                <div>
+                                    <n-icon>
+                                        <Play />
+                                    </n-icon>
+                                    {{ recommend.played }}
+                                </div>
+                                <div>
+                                    <n-icon>
+                                        <List />
+                                    </n-icon>
+                                    {{ recommend.danmu }}
+                                </div>
+                            </div>
+                            <div style="margin-right: 10px">3</div>
+                        </div>
                     </a>
                 </n-layout-header>
                 <n-layout-content>
-                    <n-tooltip placement="bottom" trigger="hover">
+                    <n-popover trigger="hover" :delay="100" :flip="true" placement="bottom-end" :show-arrow="false">
                         <template #trigger>
-                            <n-ellipsis style="max-width: 240px">
-                                {{ recommend.title }}
-                            </n-ellipsis>
+                            <div style="font-size: 1rem; font-weight: 500">
+                                <n-ellipsis :line-clamp="1" :tooltip="false">
+                                    {{ recommend.title }}
+                                </n-ellipsis>
+                            </div>
                         </template>
-                        <span> I wish they all could be California girls </span>
-                    </n-tooltip>
+                        <span>{{ recommend.title }}</span>
+                    </n-popover>
                 </n-layout-content>
-                <n-layout-footer>
-                    <n-space justify="space-evenly" align="start">
-                        <n-button icon-placement="right" secondary strong ghost>
+                <n-layout-footer style="background-color: transparent">
+                    <n-space justify="start" align="start">
+                        <n-button text color="#ff69b4" class="video-btn">
                             <template #icon>
                                 <n-icon>
-                                    <Play />
+                                    <People />
                                 </n-icon>
                             </template>
-                            {{ recommend.played }}
-                        </n-button>
-                        <n-button icon-placement="right" secondary strong ghost>
-                            <template #icon>
-                                <n-icon>
-                                    <List />
-                                </n-icon>
-                            </template>
-                            {{ recommend.danmu }}
+                            <span>
+                                {{ recommend.author }}
+                            </span>
+                            <span style="margin: 0 4px 0 4px">·</span>
+                            <span>5-8</span>
                         </n-button>
                     </n-space>
                 </n-layout-footer>
@@ -65,18 +100,14 @@ onMounted(async () => {
     </n-empty>
 </template>
 <style scoped lang="scss">
-.light-green {
-    height: 108px;
-    background-color: rgba(0, 128, 0, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.green {
-    height: 108px;
-    background-color: rgba(0, 128, 0, 0.24);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@import '@/assets/scss/base.scss';
+
+.video-btn {
+    color: $video-up-color;
+
+    &:hover {
+        transition: color 0.2s linear;
+        color: $hover-text-color;
+    }
 }
 </style>

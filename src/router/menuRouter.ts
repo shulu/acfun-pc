@@ -152,7 +152,16 @@ export const leftTopMenuOptions: MenuOption[] = [
         icon: renderIcon(PersonSharp),
     },
     {
-        label: '消息',
+        label: () =>
+            h(
+                RouterLink,
+                {
+                    to: {
+                        path: '/messaage',
+                    },
+                },
+                { default: () => '消息' },
+            ),
         key: 'message',
         disabled: false,
         icon: renderIcon(AtSharp),

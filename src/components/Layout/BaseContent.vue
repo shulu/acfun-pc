@@ -2,13 +2,13 @@
  * @Author: shulu
  * @Date: 2023-05-20 17:25:06
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-26 17:25:12
+ * @LastEditTime: 2023-05-27 14:47:35
  * @Description: file content
- * @FilePath: /acfun-pc/src/components/Layout/BaseContent.vue
+ * @FilePath: \acfun-pc\src\components\Layout\BaseContent.vue
 -->
 <script setup lang="ts"></script>
 <template>
-    <n-layout-content content-style="padding: 24px;" position="absolute" style="top: 91px; bottom: 64px">
+    <n-layout-content content-style="padding: 24px;" style="margin-top: 91px">
         <RouterView />
     </n-layout-content>
 </template>

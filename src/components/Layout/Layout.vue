@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-18 22:55:23
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-26 17:50:01
+ * @LastEditTime: 2023-05-27 14:43:56
  * @Description: file content
- * @FilePath: /acfun-pc/src/components/Layout/Layout.vue
+ * @FilePath: \acfun-pc\src\components\Layout\Layout.vue
 -->
 <script setup lang="ts">
 import BaseContent from '@/components/Layout/BaseContent.vue';
@@ -39,7 +39,7 @@ watch(
 <template>
     <n-layout has-sider>
         <LeftBar />
-        <n-layout>
+        <n-layout :native-scrollbar="false">
             <TopBar :menu-options="menuOptions" />
             <BaseContent />
         </n-layout>

@@ -7,6 +7,7 @@
  * @FilePath: \acfun-pc\src\utils\NativeUI.ts
  */
 import {
+    NBadge,
     NButton,
     NConfigProvider,
     NDivider,
@@ -24,6 +25,7 @@ import {
     NLayoutHeader,
     NLayoutSider,
     NMenu,
+    NPopover,
     NResult,
     NSpace,
     NSwitch,
@@ -58,6 +60,8 @@ const naive = create({
         NConfigProvider,
         NEllipsis,
         NTooltip,
+        NPopover,
+        NBadge,
     ],
 });
 

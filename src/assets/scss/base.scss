@@ -12,3 +12,18 @@ body {
 #app {
     height: 100%;
 }
+
+span,
+div {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+// color
+$hover-text-color: #f566a6;
+$hover-back-color: #fdecfe;
+$video-title-color: #18191c;
+$video-up-color: #9499a0;

@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-20 12:01:57
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-26 16:41:55
+ * @LastEditTime: 2023-05-27 14:45:46
  * @Description: file content
- * @FilePath: /acfun-pc/src/components/Layout/Top/TopBar.vue
+ * @FilePath: \acfun-pc\src\components\Layout\Top\TopBar.vue
 -->
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui';
@@ -39,7 +39,7 @@ watch(
 );
 </script>
 <template>
-    <n-layout-header bordered>
+    <n-layout-header bordered position="absolute" style="z-index: 999">
         <n-grid x-gap="12" cols="5">
             <n-gi :span="3">
                 <n-menu
