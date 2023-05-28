@@ -39,7 +39,7 @@ watch(
 );
 </script>
 <template>
-    <n-layout-header bordered position="absolute" style="z-index: 999">
+    <n-layout-header bordered position="absolute" style="z-index: 999" class="can-drag">
         <n-grid x-gap="12" cols="5">
             <n-gi :span="3">
                 <n-menu
@@ -48,11 +48,12 @@ watch(
                     :collapsed-width="20"
                     :options="menuOptions"
                     @update:value="handleUpdateValue"
+                    class="cannot-drag"
                 />
             </n-gi>
-            <n-gi :span="2" style="display: flex; align-items: end; justify-content: end">
+            <n-gi :span="2" style="display: flex; align-items: end; justify-content: end" class="cannot-drag">
                 <search />
-                <system-button />
+                <system-button class="cannot-drag" />
             </n-gi>
         </n-grid>
     </n-layout-header>

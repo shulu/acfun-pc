@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-24 17:32:35
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-24 17:52:06
+ * @LastEditTime: 2023-05-28 14:03:22
  * @Description: file content
- * @FilePath: /acfun-pc/src/components/Layout/Left/LeftTheme.vue
+ * @FilePath: \acfun-pc\src\components\Layout\Left\LeftTheme.vue
 -->
 <script setup lang="ts">
 import { Moon, SunnyOutline } from '@vicons/ionicons5';
@@ -40,6 +40,7 @@ const handleSwitch = () => {
         style="position: absolute; bottom: 1rem; left: 0; right: 0"
         :rail-style="railStyle"
         :on-update:value="handleSwitch"
+        class="cannot-drag"
     >
         <template #checked-icon>
             <n-icon>

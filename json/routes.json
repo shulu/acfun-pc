@@ -1,3 +1,4 @@
 {
-    "/home/:cate": "/home?cate=:cate"
+    "/home/:cate": "/home?cate=:cate",
+    "/live/:cate": "/live?cate=:cate"
 }

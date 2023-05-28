@@ -8,3 +8,10 @@ export const HomeList = (data: IHomeGet) => {
         method: 'get',
     });
 };
+
+export const LiveList = (data: IHomeGet) => {
+    return request({
+        url: '/live/' + data.cate,
+        method: 'get',
+    });
+};

@@ -100,7 +100,7 @@ onMounted(async () => {
     </n-empty>
 </template>
 <style scoped lang="scss">
-@import '@/assets/scss/base.scss';
+@import '@/assets/scss/color.scss';
 
 .video-btn {
     color: $video-up-color;

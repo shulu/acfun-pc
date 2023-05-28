@@ -2,8 +2,8 @@
  * @Author: shulu
  * @Date: 2023-05-18 21:43:01
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-26 16:22:45
- * @FilePath: /acfun-pc/src/components/Layout/Left/LeftBar.vue
+ * @LastEditTime: 2023-05-28 14:00:33
+ * @FilePath: \acfun-pc\src\components\Layout\Left\LeftBar.vue
 -->
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -22,6 +22,7 @@ const collapsed = ref(false);
         show-trigger
         @collapse="collapsed = true"
         @expand="collapsed = false"
+        class="can-drag"
     >
         <left-logo :collapsed="collapsed" />
         <menu-top :collapsed="collapsed" />
