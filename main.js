@@ -2,12 +2,13 @@
  * @Author: shulu
  * @Date: 2023-04-07 14:31:24
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-28 19:15:43
+ * @LastEditTime: 2023-05-29 10:46:32
  * @Description: file content
- * @FilePath: \acfun-pc\main.js
+ * @FilePath: /acfun-pc/main.js
  */
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const createTray = require('./controller/tray');
 const WinState = require('electron-win-state').default;
 let mainWindow = null;
 const createWindow = () => {
