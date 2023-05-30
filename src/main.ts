@@ -10,9 +10,11 @@
 import '@/assets/scss/base.scss';
 import router from '@/router/router';
 import naive from '@/utils/NativeUI';
+
 import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 import App from './App.vue';
+
 
 const pinia = createPinia();
 const app = createApp(App);

@@ -7,11 +7,12 @@
  * @FilePath: /acfun-pc/controller/tray.js
  */
 const { Menu, Tray, app } = require('electron');
+const path = require('path');
 
 const trayMenu = Menu.buildFromTemplate([{ label: 'Item 1' }, { role: 'quit' }]);
 
 function createTray(app, win) {
-    const tray = new Tray('../acfun-icon-32x32.png');
+    const tray = new Tray(path.resolve(__dirname, '../acfun-icon-32x32.png'));
     tray.setToolTip('ReadIt');
     tray.on('click', (e) => {
         if (e.shiftKey) {

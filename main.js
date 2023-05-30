@@ -2,14 +2,18 @@
  * @Author: shulu
  * @Date: 2023-04-07 14:31:24
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-29 10:46:32
+ * @LastEditTime: 2023-05-30 22:14:48
  * @Description: file content
- * @FilePath: /acfun-pc/main.js
+ * @FilePath: \acfun-pc\main.js
  */
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const createTray = require('./controller/tray');
 const WinState = require('electron-win-state').default;
+//自定义事件
+const handleSystemBtnEvent = require('./controller/sysBtn');
+//自定义托盘
+const createTray = require('./controller/tray');
+
 let mainWindow = null;
 const createWindow = () => {
     const winState = new WinState({
@@ -38,37 +42,20 @@ const createWindow = () => {
         winState.saveState(mainWindow);
     });
     mainWindow.loadURL('http://localhost:5173/');
-    mainWindow.webContents.openDevTools({ mode: 'bottom', activate: false });
+    // mainWindow.webContents.openDevTools({ mode: 'bottom', activate: false });
     winState.manage(mainWindow);
 
     createTray(app, mainWindow);
 };
 
-//接收最小化命令
-ipcMain.handle('on-window-min-event', function () {
-    mainWindow.minimize();
-});
-//接收最大化命令
-ipcMain.handle('on-window-max-event', function () {
-    if (mainWindow.isMaximized()) {
-        mainWindow.restore();
-    } else {
-        mainWindow.maximize();
-    }
-});
-//接收关闭命令
-ipcMain.handle('on-window-close-event', function () {
-    mainWindow.close();
-});
-
 app.whenReady().then(() => {
     createWindow();
-
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {
             createWindow();
         }
     });
+    handleSystemBtnEvent(mainWindow);
 });
 
 app.on('window-all-closed', () => {

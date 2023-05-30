@@ -2,14 +2,15 @@
  * @Author: shulu
  * @Date: 2023-05-18 21:05:56
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-27 18:37:17
+ * @LastEditTime: 2023-05-30 23:12:36
  * @Description: file content
  * @FilePath: \acfun-pc\src\App.vue
 -->
 <script setup lang="ts">
 import Layout from '@/components/Layout/Layout.vue';
+import { isNight } from '@/utils/datetime';
 import { darkTheme } from 'naive-ui';
-import { provide, ref } from 'vue';
+import { onMounted, provide, ref, toRef } from 'vue';
 const theme = ref(null);
 const switchTheme = () => {
     if (!theme.value) {
@@ -18,6 +19,12 @@ const switchTheme = () => {
         theme.value = null;
     }
 };
+const night = toRef(isNight());
+onMounted(() => {
+    if (night && theme.value != darkTheme) {
+        theme.value = darkTheme;
+    }
+});
 provide('switchTheme', switchTheme);
 </script>
 <template>
