@@ -6,23 +6,30 @@
  * @Description: file content
  * @FilePath: /acfun-pc/src/views/Home/HomeAnime.vue
 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAnimeStore } from '@/store/AnimeStore';
+import { onMounted, ref } from 'vue';
+
+const { getCate } = useAnimeStore();
+
+const sortCate = ref([]);
+onMounted(async () => {
+    const result = await getCate();
+    sortCate.value = result;
+});
+</script>
 <template>
     <n-layout>
         <n-layout-header>
             <n-list bordered :show-divider="false">
-                <n-list-item>
+                <n-list-item v-for="cate in sortCate">
                     <template #prefix>
-                        <n-button text color="#ff69b4" disabled> 排序: </n-button>
+                        <n-button text color="#ff69b4" disabled>{{ cate.name }}: </n-button>
                     </template>
                     <n-space>
-                        <n-button round>Oops!</n-button>
-                        <n-button>Oops!</n-button>
-                        <n-button>Oops!</n-button>
-                        <n-button>Long! Long! Cross the line!</n-button>
+                        <n-button round v-for="sort in cate.children">{{ sort.name }}</n-button>
                     </n-space>
                 </n-list-item>
-                <n-list-item> 2 </n-list-item>
             </n-list>
         </n-layout-header>
         <n-layout-content content-style="padding: 24px;">

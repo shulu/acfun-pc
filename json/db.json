@@ -171,5 +171,191 @@
             "like": 3,
             "user": 3
         }
+    ],
+    "anime-cate": [
+        {
+            "name": "排序",
+            "key": "order",
+            "children": [
+                {
+                    "name": "最近更新",
+                    "key": "lastest"
+                },
+                {
+                    "name": "推荐",
+                    "key": "recommend"
+                }
+            ]
+        },
+        {
+            "name": "状态",
+            "key": "status",
+            "children": [
+                {
+                    "name": "全部",
+                    "key": "all"
+                },
+                {
+                    "name": "连载中",
+                    "key": "now"
+                },
+                {
+                    "name": "已完结",
+                    "key": "finished"
+                },
+                {
+                    "name": "即将上映",
+                    "key": "recently"
+                }
+            ]
+        },
+        {
+            "name": "地区",
+            "key": "area",
+            "children": [
+                {
+                    "name": "全部",
+                    "key": "all"
+                },
+                {
+                    "name": "日本",
+                    "key": "japan"
+                },
+                {
+                    "name": "欧美",
+                    "key": "europa"
+                },
+                {
+                    "name": "国产",
+                    "key": "local"
+                }
+            ]
+        },
+        {
+            "name": "风格",
+            "key": "style",
+            "children": [
+                {
+                    "name": "全部",
+                    "key": "all"
+                },
+                {
+                    "name": "恋爱",
+                    "key": "love"
+                },
+                {
+                    "name": "校园",
+                    "key": "school"
+                },
+                {
+                    "name": "战斗",
+                    "key": "battle"
+                },
+                {
+                    "name": "热血",
+                    "key": "hot"
+                },
+                {
+                    "name": "奇幻",
+                    "key": "wander"
+                },
+                {
+                    "name": "搞笑",
+                    "key": "happy"
+                },
+                {
+                    "name": "冒险",
+                    "key": "adventure"
+                },
+                {
+                    "name": "萌系",
+                    "key": "cute"
+                },
+                {
+                    "name": "特摄",
+                    "key": "giant"
+                },
+                {
+                    "name": "青春",
+                    "key": "young"
+                }
+            ]
+        },
+        {
+            "name": "年份",
+            "key": "year",
+            "children": [
+                {
+                    "name": "全部",
+                    "key": "all"
+                },
+                {
+                    "name": "2021",
+                    "key": "2021"
+                },
+                {
+                    "name": "全部",
+                    "key": "all"
+                },
+                {
+                    "name": "2020",
+                    "key": "2020"
+                },
+                {
+                    "name": "2019",
+                    "key": "2019"
+                },
+                {
+                    "name": "2018",
+                    "key": "2018"
+                },
+                {
+                    "name": "2017",
+                    "key": "2017"
+                },
+                {
+                    "name": "2016",
+                    "key": "2016"
+                },
+                {
+                    "name": "2015",
+                    "key": "2015"
+                },
+                {
+                    "name": "2014-2010",
+                    "key": "2014-2010"
+                },
+                {
+                    "name": "更早",
+                    "key": "earlier"
+                }
+            ]
+        },
+        {
+            "name": "季度",
+            "key": "part",
+            "children": [
+                {
+                    "name": "全部",
+                    "key": "all"
+                },
+                {
+                    "name": "1月",
+                    "key": "Jan"
+                },
+                {
+                    "name": "4月",
+                    "key": "Apr"
+                },
+                {
+                    "name": "7月",
+                    "key": "Jul"
+                },
+                {
+                    "name": "10月",
+                    "key": "Oct"
+                }
+            ]
+        }
     ]
 }

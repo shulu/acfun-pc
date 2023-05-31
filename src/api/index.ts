@@ -15,3 +15,10 @@ export const LiveList = (data: IHomeGet) => {
         method: 'get',
     });
 };
+
+export const AnimeCate = () => {
+    return request({
+        url: '/anime-cate',
+        method: 'get',
+    });
+};

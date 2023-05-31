@@ -1,4 +1,5 @@
 {
     "/home/:cate": "/home?cate=:cate",
-    "/live/:cate": "/live?cate=:cate"
+    "/live/:cate": "/live?cate=:cate",
+    "/anime-cate": "/anime-cate"
 }
