@@ -2,13 +2,14 @@
  * @Author: shulu
  * @Date: 2023-05-18 22:59:54
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-20 17:28:54
+ * @LastEditTime: 2023-05-31 11:06:34
  * @Description: file content
- * @FilePath: \acfun-pc\src\utils\NativeUI.ts
+ * @FilePath: /acfun-pc/src/utils/NativeUI.ts
  */
 import {
     NBadge,
     NButton,
+    NCard,
     NConfigProvider,
     NDivider,
     NEllipsis,
@@ -24,6 +25,8 @@ import {
     NLayoutFooter,
     NLayoutHeader,
     NLayoutSider,
+    NList,
+    NListItem,
     NMenu,
     NPopover,
     NResult,
@@ -62,6 +65,9 @@ const naive = create({
         NTooltip,
         NPopover,
         NBadge,
+        NList,
+        NListItem,
+        NCard,
     ],
 });
 

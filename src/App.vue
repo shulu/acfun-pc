@@ -2,9 +2,9 @@
  * @Author: shulu
  * @Date: 2023-05-18 21:05:56
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-30 23:12:36
+ * @LastEditTime: 2023-05-31 11:35:02
  * @Description: file content
- * @FilePath: \acfun-pc\src\App.vue
+ * @FilePath: /acfun-pc/src/App.vue
 -->
 <script setup lang="ts">
 import Layout from '@/components/Layout/Layout.vue';
@@ -21,7 +21,7 @@ const switchTheme = () => {
 };
 const night = toRef(isNight());
 onMounted(() => {
-    if (night && theme.value != darkTheme) {
+    if (night.value && theme.value != darkTheme) {
         theme.value = darkTheme;
     }
 });
