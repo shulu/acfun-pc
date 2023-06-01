@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { IRecommendList } from '@/models/HomeInterface';
 import { useHomeStore } from '@/store/homeStore';
 import { List, People, Play } from '@vicons/ionicons5';
 import { NIcon } from 'naive-ui';
 import { onMounted, ref } from 'vue';
 const store = useHomeStore();
 store.cate = { cate: 'recommend' };
-const list = ref([]);
+const list = ref<IRecommendList[] | []>([]);
 onMounted(async () => {
     const result = await store.getListByCate();
     list.value = result;
@@ -24,27 +25,8 @@ onMounted(async () => {
                             style="border-radius: 0.3rem; width: 100%"
                             :img-props="{ style: { width: '100%' } }"
                         />
-                        <div
-                            style="
-                                position: absolute;
-                                bottom: 0;
-                                left: 0;
-                                color: #fff;
-                                display: flex;
-                                gap: 10px;
-                                width: 100%;
-                            "
-                        >
-                            <div
-                                style="
-                                    display: flex;
-                                    width: 100%;
-                                    flex: 1;
-                                    margin-left: 8px;
-                                    margin-bottom: 8px;
-                                    gap: 10px;
-                                "
-                            >
+                        <div class="float-recommend-info">
+                            <div class="float-recommend-inner-info">
                                 <div>
                                     <n-icon>
                                         <Play />
@@ -108,6 +90,24 @@ onMounted(async () => {
     &:hover {
         transition: color 0.2s linear;
         color: $hover-text-color;
+    }
+}
+.float-recommend-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+
+    .float-recommend-inner-info {
+        display: flex;
+        width: 100%;
+        flex: 1;
+        margin-left: 8px;
+        margin-bottom: 8px;
+        gap: 10px;
     }
 }
 </style>

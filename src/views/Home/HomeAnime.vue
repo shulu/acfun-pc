@@ -2,17 +2,17 @@
  * @Author: shulu
  * @Date: 2023-05-22 09:43:13
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-31 11:42:47
+ * @LastEditTime: 2023-06-01 09:56:02
  * @Description: file content
  * @FilePath: /acfun-pc/src/views/Home/HomeAnime.vue
 -->
 <script setup lang="ts">
+import { IAnimeCates } from '@/models/HomeInterface';
 import { useAnimeStore } from '@/store/AnimeStore';
 import { onMounted, ref } from 'vue';
-
 const { getCate } = useAnimeStore();
 
-const sortCate = ref([]);
+const sortCate = ref<IAnimeCates[] | []>([]);
 onMounted(async () => {
     const result = await getCate();
     sortCate.value = result;
@@ -24,7 +24,7 @@ onMounted(async () => {
             <n-list bordered :show-divider="false">
                 <n-list-item v-for="cate in sortCate">
                     <template #prefix>
-                        <n-button text color="#ff69b4" disabled>{{ cate.name }}: </n-button>
+                        <n-button text color="#999" disabled style="font-weight: 500">{{ cate.name }}: </n-button>
                     </template>
                     <n-space>
                         <n-button round v-for="sort in cate.children">{{ sort.name }}</n-button>
