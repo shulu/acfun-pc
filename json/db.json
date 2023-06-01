@@ -370,7 +370,7 @@
             "part": 9,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "6004598",
@@ -383,7 +383,7 @@
             "part": 3,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "5022161",
@@ -396,7 +396,7 @@
             "part": 6,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "6000991",
@@ -409,7 +409,7 @@
             "part": 9,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "6000218",
@@ -422,7 +422,7 @@
             "part": 12,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "6000577",
@@ -435,7 +435,7 @@
             "part": 9,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "6000335",
@@ -448,7 +448,7 @@
             "part": 10,
             "order": "recommend",
             "is_free": false,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "6004319",
@@ -461,7 +461,7 @@
             "part": 11,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "6004597",
@@ -474,7 +474,7 @@
             "part": 3,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
             "id": "5024886",
@@ -487,9 +487,10 @@
             "part": 9,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
         },
         {
+            "id": 1,
             "name": "富豪刑警  Balance:UNLIMITED",
             "episode": 11,
             "cover": "https://tx-free-imgs2.acfun.cn/kimg/bs2/zt-image-host/ChYwOGE0ODhmZTA0MTBiZjg0ODI4MTA0EJvM1y8.webp?x-oss-process=image/resize,m_fill,w_296,h_394",
@@ -499,7 +500,62 @@
             "part": 9,
             "order": "recommend",
             "is_free": true,
-            "status": true
+            "status": "finished"
+        },
+        {
+            "id": 1,
+            "name": "富豪刑警  Balance:UNLIMITED",
+            "episode": 11,
+            "cover": "https://tx-free-imgs2.acfun.cn/kimg/bs2/zt-image-host/ChYwOGE0ODhmZTA0MTBiZjg0ODI4MTA0EJvM1y8.webp?x-oss-process=image/resize,m_fill,w_296,h_394",
+            "played": 136.6,
+            "area": "japan",
+            "year": 2020,
+            "part": 9,
+            "order": "recommend",
+            "is_free": true,
+            "status": "finished"
+        },
+        {
+            "id": 6107442,
+            "name": "光子英雄传：超神灵主",
+            "episode": 38,
+            "cover": "https://tx-free-imgs2.acfun.cn/kimg/bs2/zt-image-host/ChgwOGJlYjVjZWYxMDIxMGNhZDNhMzgyMDMQm8zXLw.webp?x-oss-process=image/resize,m_fill,w_296,h_394",
+            "played": 136.6,
+            "area": "japan",
+            "year": 2020,
+            "part": 9,
+            "order": "recommend",
+            "is_free": false,
+            "status": "now",
+            "next_episode_date": "2023-05-26"
+        },
+        {
+            "id": 6137924,
+            "name": "大话江湖录 第二季",
+            "episode": 1,
+            "cover": "https://tx-free-imgs2.acfun.cn/kimg/bs2/zt-image-host/ChgwOGJlYjVjZWYxMDIxMGNhZDNhMzgyMDMQm8zXLw.webp?x-oss-process=image/resize,m_fill,w_296,h_394",
+            "played": 136.6,
+            "area": "japan",
+            "year": 2020,
+            "part": 9,
+            "order": "all",
+            "is_free": false,
+            "status": "now",
+            "next_episode_date": "2023-05-26"
+        },
+        {
+            "id": 6137505,
+            "name": "肥志百科 第8季 植物篇",
+            "episode": 5,
+            "cover": "https://tx-free-imgs2.acfun.cn/kimg/bs2/zt-image-host/ChgwOGJlZTBiN2M3MDMxMGNiOTlhMWU0MDEQm8zXLw.webp?x-oss-process=image/resize,m_fill,w_296,h_394",
+            "played": 136.6,
+            "area": "japan",
+            "year": 2023,
+            "part": 9,
+            "order": "all",
+            "is_free": true,
+            "status": "now",
+            "next_episode_date": "2023-05-27"
         }
     ]
 }
