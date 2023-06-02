@@ -2,20 +2,18 @@
  * @Author: shulu
  * @Date: 2023-05-22 09:43:13
  * @LastEditors: shulu
- * @LastEditTime: 2023-06-01 09:56:02
+ * @LastEditTime: 2023-06-02 11:41:38
  * @Description: file content
  * @FilePath: /acfun-pc/src/views/Home/HomeAnime.vue
 -->
 <script setup lang="ts">
-import { IAnimeCates } from '@/models/HomeInterface';
 import { useAnimeStore } from '@/store/AnimeStore';
-import { onMounted, ref } from 'vue';
-const { getCate } = useAnimeStore();
+import { onMounted } from 'vue';
+const { getCate, sortCate, getContent, animeContent } = useAnimeStore();
 
-const sortCate = ref<IAnimeCates[] | []>([]);
 onMounted(async () => {
-    const result = await getCate();
-    sortCate.value = result;
+    await getCate();
+    await getContent();
 });
 </script>
 <template>
@@ -34,26 +32,20 @@ onMounted(async () => {
         </n-layout-header>
         <n-layout-content content-style="padding: 24px;">
             <n-grid cols="6" responsive="screen">
-                <n-grid-item>
-                    <div class="light-green">1</div>
-                </n-grid-item>
-                <n-grid-item>
-                    <div class="green">2</div>
-                </n-grid-item>
-                <n-grid-item>
-                    <div class="light-green">3</div>
-                </n-grid-item>
-                <n-grid-item>
-                    <div class="green">4</div>
-                </n-grid-item>
-                <n-grid-item>
-                    <div class="light-green">5</div>
-                </n-grid-item>
-                <n-grid-item>
-                    <div class="green">6</div>
-                </n-grid-item>
-                <n-grid-item>
-                    <div class="light-green">7</div>
+                <n-grid-item v-for="anime in animeContent">
+                    <n-layout>
+                        <n-layout-header>
+                            <n-image
+                                :src="anime.cover"
+                                object-fit="cover"
+                                preview-disabled
+                                style="border-radius: 0.3rem; width: 100%"
+                                :img-props="{ style: { width: '100%' } }"
+                            />
+                        </n-layout-header>
+                        <n-layout-content content-style="padding: 24px;">{{ anime.name }}</n-layout-content>
+                        <n-layout-footer>成府路</n-layout-footer>
+                    </n-layout>
                 </n-grid-item>
             </n-grid>
         </n-layout-content>
