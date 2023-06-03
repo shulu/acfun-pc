@@ -2,7 +2,7 @@
  * @Author: shulu
  * @Date: 2023-05-21 20:59:05
  * @LastEditors: shulu
- * @LastEditTime: 2023-05-28 18:25:01
+ * @LastEditTime: 2023-06-03 22:01:34
  * @Description: file content
  * @FilePath: \acfun-pc\src\views\Home\HomeLive.vue
 -->
@@ -10,48 +10,22 @@
 import { useLiveStore } from '@/store/liveStore';
 import { HeartOutline, PeopleOutline } from '@vicons/ionicons5';
 import { NIcon } from 'naive-ui';
-import { onMounted, ref, watch } from 'vue';
-const store = useLiveStore();
-store.cate = { cate: 'recommend' };
-const list = ref([]);
-onMounted(async () => {
-    const result = await store.getListByCate();
-    list.value = result;
-});
+import { ref, watch } from 'vue';
+const liveStore = useLiveStore();
+liveStore.liveCate = { cate: 'recommend' };
+liveStore.getLiveListByCate();
 watch(
-    () => store.cate,
+    () => liveStore.liveCate,
     async () => {
-        const result = await store.getListByCate();
-        list.value = result;
+        liveStore.getLiveListByCate();
     },
+    { immediate: true },
 );
 const handleClick = (activeKey: string) => {
     activeBtn.value = activeKey;
-    store.cate = { cate: activeKey };
+    liveStore.liveCate = { cate: activeKey };
 };
 const activeBtn = ref('recommend');
-const liveBtns = ref([
-    {
-        key: 'recommend',
-        title: '推荐',
-    },
-    {
-        key: 'live2d',
-        title: '虚拟偶像',
-    },
-    {
-        key: 'game',
-        title: '游戏',
-    },
-    {
-        key: 'enter',
-        title: '娱乐',
-    },
-    {
-        key: 'mobile',
-        title: '手游',
-    },
-]);
 </script>
 <template>
     <n-space style="margin-bottom: 24px">
@@ -60,13 +34,13 @@ const liveBtns = ref([
             @click="handleClick(btn.key)"
             :color="activeBtn == btn.key ? '#fdecf1' : '#fff'"
             :text-color="activeBtn == btn.key ? '#f56a9b' : '#000'"
-            v-for="btn in liveBtns"
+            v-for="btn in liveStore.cateList"
         >
             {{ btn.title }}
         </n-button>
     </n-space>
-    <n-grid cols="4 m:4 l:5" responsive="screen" :x-gap="20" :y-gap="20" v-if="list.length > 0">
-        <n-grid-item v-for="recommend in list">
+    <n-grid cols="4 m:4 l:5" responsive="screen" :x-gap="20" :y-gap="20" v-if="liveStore.liveList.length > 0">
+        <n-grid-item v-for="recommend in liveStore.liveList">
             <n-layout>
                 <n-layout-header>
                     <a href="#" style="display: inline-block; position: relative">

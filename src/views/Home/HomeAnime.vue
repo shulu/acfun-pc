@@ -2,37 +2,34 @@
  * @Author: shulu
  * @Date: 2023-05-22 09:43:13
  * @LastEditors: shulu
- * @LastEditTime: 2023-06-02 22:46:47
+ * @LastEditTime: 2023-06-03 23:04:56
  * @Description: file content
  * @FilePath: \acfun-pc\src\views\Home\HomeAnime.vue
 -->
 <script setup lang="ts">
 import { useAnimeStore } from '@/store/AnimeStore';
-import { onMounted } from 'vue';
-const { getCate, sortCate, getContent, animeContent } = useAnimeStore();
+const AnimeStore = useAnimeStore();
 
-onMounted(() => {
-    getCate();
-    getContent();
-});
+AnimeStore.getCate();
+AnimeStore.getContent();
 </script>
 <template>
     <n-layout>
         <n-layout-header>
             <n-list bordered :show-divider="false">
-                <n-list-item v-for="cate in sortCate">
+                <n-list-item v-for="cate in AnimeStore.sortCate">
                     <template #prefix>
                         <n-button text color="#999" disabled style="font-weight: 500">{{ cate.name }}: </n-button>
                     </template>
                     <n-space>
-                        <n-button round v-for="sort in cate.children">{{ sort.name }}</n-button>
+                        <n-button round v-for="sort in cate.children" :class="">{{ sort.name }}</n-button>
                     </n-space>
                 </n-list-item>
             </n-list>
         </n-layout-header>
         <n-layout-content style="margin-top: 24px">
             <n-grid cols="6" responsive="screen" :x-gap="20" :y-gap="25">
-                <n-grid-item v-for="anime in animeContent">
+                <n-grid-item v-for="anime in AnimeStore.animeContent">
                     <n-layout>
                         <n-layout-header>
                             <n-image
@@ -70,3 +67,10 @@ onMounted(() => {
         </n-layout-content>
     </n-layout>
 </template>
+<style lang="scss" scoped>
+@import '@/assets/scss/color.scss';
+.btn-active {
+    color: $active-anime-color;
+    background-color: $active-back-color;
+}
+</style>

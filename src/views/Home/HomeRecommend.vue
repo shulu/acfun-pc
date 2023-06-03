@@ -1,20 +1,14 @@
 <script setup lang="ts">
-import { IRecommendList } from '@/models/HomeInterface';
 import { useHomeStore } from '@/store/homeStore';
 import { List, People, Play } from '@vicons/ionicons5';
 import { NIcon } from 'naive-ui';
-import { onMounted, ref } from 'vue';
-const store = useHomeStore();
-store.cate = { cate: 'recommend' };
-const list = ref<IRecommendList[] | []>([]);
-onMounted(async () => {
-    const result = await store.getListByCate();
-    list.value = result;
-});
+const homeStore = useHomeStore();
+homeStore.recommendCate = { cate: 'recommend' };
+homeStore.getRecommendList();
 </script>
 <template>
-    <n-grid cols="4 m:4 l:5" responsive="screen" :x-gap="20" :y-gap="20" v-if="list.length > 0">
-        <n-grid-item v-for="recommend in list">
+    <n-grid cols="4 m:4 l:5" responsive="screen" :x-gap="20" :y-gap="20" v-if="homeStore.recommendList.length > 0">
+        <n-grid-item v-for="recommend in homeStore.recommendList">
             <n-layout>
                 <n-layout-header>
                     <a href="#" style="display: inline-block; position: relative">

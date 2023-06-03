@@ -19,6 +19,16 @@ export interface IHomeGet {
     cate: String;
 }
 
+export interface ILiveList {
+    cate: string;
+    title: string;
+    cover_image: string;
+    author_image: string;
+    author: string;
+    like: number;
+    user: number;
+}
+
 export interface IAnimeCate {
     name: string;
     key: string;
