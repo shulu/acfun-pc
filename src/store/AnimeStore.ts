@@ -2,7 +2,7 @@
  * @Author: shulu
  * @Date: 2023-05-25 17:09:05
  * @LastEditors: shulu
- * @LastEditTime: 2023-06-03 21:39:45
+ * @LastEditTime: 2023-06-05 22:17:36
  * @Description: file content
  * @FilePath: \acfun-pc\src\store\AnimeStore.ts
  */
@@ -38,6 +38,28 @@ export const useAnimeStore = defineStore('animeStore', {
         async getContent() {
             const result = await AnimeContent();
             this.animeContent = result;
+        },
+        filterContent(cate: string, btnCate: string) {
+            console.log(`output->cate`, cate);
+            console.log(`output->btnCate`, btnCate);
+            switch (cate) {
+                case 'sort':
+                    this.checkCate.order = btnCate;
+                    break;
+                case 'status':
+                    this.checkCate.status = btnCate;
+                    break;
+                case 'style':
+                    this.checkCate.style = btnCate;
+                    break;
+                case 'year':
+                    this.checkCate.year = btnCate;
+                    break;
+                case 'part':
+                    this.checkCate.part = btnCate;
+                    break;
+            }
+            console.log(`output->this.checkCate`, this.checkCate);
         },
     },
 });

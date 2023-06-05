@@ -2,7 +2,7 @@
  * @Author: shulu
  * @Date: 2023-05-22 09:43:13
  * @LastEditors: shulu
- * @LastEditTime: 2023-06-04 19:21:20
+ * @LastEditTime: 2023-06-05 22:16:44
  * @Description: file content
  * @FilePath: \acfun-pc\src\views\Home\HomeAnime.vue
 -->
@@ -22,7 +22,14 @@ AnimeStore.getContent();
                         <n-button text color="#999" disabled style="font-weight: 500">{{ cate.name }}: </n-button>
                     </template>
                     <n-space>
-                        <n-button round v-for="sort in cate.children" class="btn-active">{{ sort.name }}</n-button>
+                        <n-button
+                            round
+                            v-for="sort in cate.children"
+                            @click="AnimeStore.filterContent(cate.key, sort.key)"
+                            :class="'btn-active' ? (AnimeStore.checkCate.order = sort.key) : ''"
+                        >
+                            {{ sort.name }}
+                        </n-button>
                     </n-space>
                 </n-list-item>
             </n-list>
